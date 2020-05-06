@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+<!--This login template is located in the templates/registration folder because this is where the 
+built-in login django will look for it. Note we just need this template and update our urls to 
+include the builtp-in urls and the view is already built-in-->
+
+{% load crispy_forms_tags %}
+
+{% block title %}Login{% endblock title %}
+
+{% block content %}
+
+    <h2>Login</h2>
+
+    <form action="" method="post">
+        {% csrf_token %}
+        {{ form|crispy }}
+        <button type="submit" class="btn btn-success ml-2">Login</button>
+    </form>
+    
+    <p>If you are not a registrated user, <a href="{% url 'signup' %}">sign up</a></p>
+    <p>Forgotten password?<a href="{% url 'password_reset' %}">click here</a></p>
+
+{% endblock content %}

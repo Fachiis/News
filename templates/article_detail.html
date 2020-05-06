@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% block title %}Article detail{% endblock title %}
+
+{% block content %}
+
+    <div class="article-entry">
+
+        <h2>{{ article_detail.title }}</h2>
+        <p>by {{ article_detail.author }} | {{ article_detail.pub_date }}</p>
+        <p>{{ article_detail.body }}</p>
+
+        <p><a href="{% url 'article_update' article_detail.pk %}">Edit</a> |
+            <a href="{% url 'article_delete' article_detail.pk %}">Delete</a>
+        </p>
+        <p>Back to <a href="{% url 'article_list' %}">All Articles</a>.</p>
+    
+    </div>
+
+{% endblock content %}

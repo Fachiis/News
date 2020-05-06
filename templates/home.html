@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block title %}Home{% endblock title %}
+
+{% block content %}
+
+    {% if user.is_authenticated %}
+        Hi {{user.username}}!
+
+    {% else %}
+        <p>Sorry, you are not logged in.</p>
+        <p>Log in or signup on the menu bar</p>
+    
+    {% endif %}
+
+{% endblock content %}
