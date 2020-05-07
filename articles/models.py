@@ -1,5 +1,5 @@
 from django.db import models
-from django.conf import settings
+from django.conf import settings #for the timezone setting
 from django.contrib.auth import get_user_model
 from django.urls import reverse
 
@@ -7,7 +7,10 @@ from django.urls import reverse
 class Article(models.Model):
     title = models.CharField(max_length=300)
     body = models.TextField()
-    author = models.ForeignKey(get_user_model(), on_delete=models.CASCADE)
+    author = models.ForeignKey(
+        get_user_model(), 
+        on_delete=models.CASCADE
+        )
     pub_date = models.DateTimeField(auto_now_add=True)
     #The auto_now set the field to now everytime the object is saved...... 
     # best known for "last modified"
@@ -26,4 +29,33 @@ class Article(models.Model):
 
     def get_absolute_url(self):
         return reverse("article_detail", args=[str(self.id)])
-        
+
+
+#Traditionally, the name of the foreign key field is simply the model it is linked to
+# so in this case, the field name will be article
+class Comment(models.Model):
+    article = models.ForeignKey(
+        'Article', 
+        on_delete=models.CASCADE,
+        related_name='comments',
+        )
+    comment = models.CharField(max_length=150)
+    author = models.ForeignKey(
+        get_user_model(), 
+        on_delete=models.CASCADE
+        )
+
+    def __str__(self):
+        return self.comment
+
+    def get_absolute_url(self):
+        return reverse('article_list')
+
+#Working with a foreign key on the article in the Comment model, we want to follow a relationship backward
+#  that is, for each Article look up to related Comment models.
+#Django has a built-in syntax, using the Comment model we can use comment_set to 
+# access all instance of the model
+#BUT a better approach is to add a "related_name" attribute which will let us exclusively set
+# the related name for this reverse relationship. In this case "comments" which is the related name 
+# of the entire Comment model.
+    

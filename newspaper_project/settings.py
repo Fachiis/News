@@ -135,7 +135,7 @@ USE_TZ = True
 STATIC_URL = '/static/'
 
 #We declare the AUTH_USER_MODEL to tell Django to use the CustomUser model we have created 
-#instead of the built in User model.
+# instead of the built in User model. using get_user_model(), we can call it out
 #Since it exist within our users app, we will reference it as users.CustomUsers
 AUTH_USER_MODEL = 'users.CustomUser'
 

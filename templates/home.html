@@ -4,13 +4,15 @@
 
 {% block content %}
 
-    {% if user.is_authenticated %}
-        Hi {{user.username}}!
+    <div class="jumbotron">
 
-    {% else %}
-        <p>Sorry, you are not logged in.</p>
-        <p>Log in or signup on the menu bar</p>
-    
-    {% endif %}
+        <h1 class="display-4">Fachiis-NewsUp</h1>
+        <p class="lead">A Newspaper website built with Django.</p>
+        <p class="lead">
+            <a class="btn btn-primary btn-lg" href="{% url 'article_list' %}" role="button">
+            View all articles</a>
+        </p>
+
+    </div>
 
 {% endblock content %}
