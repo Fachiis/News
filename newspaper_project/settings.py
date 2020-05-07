@@ -25,7 +25,7 @@ SECRET_KEY = 'wsh#0t(e9kzf)5yrqg1)j2uenxbw=3uowqk0!jakzgsfocp*&x'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*'] #setting the site for production
 
 
 # Application definition
