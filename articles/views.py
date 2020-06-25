@@ -71,7 +71,7 @@ class ArticleDeleteView(LoginRequiredMixin, DeleteView):
     # reference it, in this case "article". This gives us the access to the data base model
 
     #This method is used to check if the 
-    # author of the article is indeed the same user who is currently logged-in and trying to make a delete
+    # author of the article is indeed the same user who is currently logged-in and trying to make a delete
     def dispatch(self, request, *args, **kwargs):
         obj = self.get_object()
         if obj.author != self.request.user:
