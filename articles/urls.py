@@ -1,3 +1,5 @@
+""" This module provides the function to create a Uniform Resource Locator for the article views. """
+
 from django.urls import path
 
 from .views import (

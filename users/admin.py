@@ -1,3 +1,4 @@
+""" This module provides the function to register a model and customize an admin. """
 from django.contrib import admin
 from django.contrib.auth.admin import UserAdmin
 
@@ -6,6 +7,10 @@ from .models import CustomUser
 
 
 class CustomUserAdmin(UserAdmin):
+    """
+    A Custom User Admin class for customizing the user admin interface.
+    """
+
     model = CustomUser
     form = CustomUserChangeForm
     add_form = CustomUserCreationForm
