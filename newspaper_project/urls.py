@@ -18,9 +18,8 @@ from django.urls import path, include
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('users/', include('users.urls')), #use this for the sign urls as we will be building the view ourselves
-    path('users/', include('django.contrib.auth.urls')), #this is for the built-in veiws and urls that django
-    #contrib.auth.urls provides for is to carry out login, logout, password change and password reset templates
+    path('users/', include('users.urls')),
+    path('users/', include('django.contrib.auth.urls')), 
     path('', include('pages.urls')),
     path('articles/', include('articles.urls')),
     
