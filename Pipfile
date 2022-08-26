@@ -12,6 +12,7 @@ django-crispy-forms = "*"
 gunicorn = "*"
 psycopg2-binary = "*"
 django-environ = "*"
+whitenoise = "*"
 
 [requires]
 python_version = "3.7"
