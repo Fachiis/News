@@ -21,6 +21,11 @@ class Article(models.Model):
     author = models.ForeignKey(get_user_model(), on_delete=models.CASCADE)
     pub_date = models.DateTimeField(auto_now_add=True)
 
+    class Meta:
+        """_summary_
+        """
+        ordering = ("-pub_date",)
+
     def __str__(self):
         return self.title
 
