@@ -1,1 +1,1 @@
-web: gunicorn newspaper_project.wsgi --log-file - 
+web: python manage.py migrate && gunicorn newspaper_project.wsgi
